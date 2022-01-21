@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "requisicaos",
+  "info": {
+    "name": "Requisicao"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date_requisicao": {
+      "type": "date"
+    },
+    "tipo_manutencao": {
+      "type": "string"
+    },
+    "date_conclusao": {
+      "type": "date"
+    },
+    "status": {
+      "type": "string"
+    },
+    "custo": {
+      "type": "integer"
+    },
+    "equipamento": {
+      "model": "equipamento",
+      "via": "requisicaos"
+    }
+  }
+}

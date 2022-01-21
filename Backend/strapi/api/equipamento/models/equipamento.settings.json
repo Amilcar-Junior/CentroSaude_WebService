@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "equipamentos",
+  "info": {
+    "name": "Equipamento"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome_equipamento": {
+      "type": "string"
+    },
+    "agencia": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "requisicaos": {
+      "via": "equipamento",
+      "collection": "requisicao"
+    }
+  }
+}
