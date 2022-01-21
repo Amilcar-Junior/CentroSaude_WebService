@@ -21,22 +21,22 @@ export const createPaciente =
 
             const res = await PacientesService.create({
 
-                data:{bi, nome, data_nascimento, morada, contacto}
+                bi, nome, data_nascimento, morada, contacto
 
             });
 
-            const { data } = res.data;
+
             dispatch({
 
                 type: CREATE_PACIENTE,
 
-                payload: data,
+                payload: res.data,
                 
 
             });
 
             toast.success('Paciente adicionado com sucesso!');
-            return Promise.resolve(data);
+            return Promise.resolve(res.data);
 
         } catch (err) {
 
@@ -52,12 +52,12 @@ export const retrievePacientes = () => async (dispatch) => {
     try {
 
         const res = await PacientesService.getAll();
-        const { data } = res.data;
+
         dispatch({
 
             type: RETRIEVE_PACIENTES,
 
-            payload: data,
+            payload: res.data,
 
         });
 
@@ -70,22 +70,22 @@ export const retrievePacientes = () => async (dispatch) => {
 
 };
 
-export const updatePaciente = (id, dados) => async (dispatch) => {
+export const updatePaciente = (id, data) => async (dispatch) => {
 
     try {
 
-        const res = await PacientesService.update(id, {data: dados});
-        const { data } = res.data;
+        const res = await PacientesService.update(id, data);
+
         dispatch({
 
             type: UPDATE_PACIENTE,
 
-            payload: data,
+            payload: res.data,
 
         });
 
         toast.success('Paciente foi alterado com sucesso!')
-        return Promise.resolve(data);
+        return Promise.resolve(res.data);
 
     } catch (err) {
         toast.error('Paciente não foi alterado!')

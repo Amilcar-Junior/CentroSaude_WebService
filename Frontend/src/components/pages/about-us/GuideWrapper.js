@@ -70,7 +70,7 @@ console.log(funcionarios);
 
                                 funcionarios.map(
 
-                                    ({ id, attributes: { nome, email, cargo } }, i) => (
+                                    ({ id, nome, email, cargo }, i) => (
                                         <div className="guide-card" key={i}>
                                             <div className="guide-thumb">
                                                 <img src={guide2Img} alt="" className="img-fluid" />

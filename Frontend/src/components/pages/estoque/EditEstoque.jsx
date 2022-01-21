@@ -18,10 +18,7 @@ class EditEstoque extends Component {
         this.saveEstoque = this.saveEstoque.bind(this);
 
         this.state = {
-            id: "",
             currentEstoque: {
-                
-                
                 nome_produto: "",
                 quantidade: "",
             },
@@ -69,10 +66,9 @@ class EditEstoque extends Component {
 
     getEstoque(id) {
         EstoquesService.get(id).then((response) => {
-            console.log(response.data.data)
             this.setState({
-                currentEstoque: response.data.data.attributes,
-                id: response.data.data.id
+                currentEstoque: response.data,
+                
             });
         });
     }
@@ -82,8 +78,8 @@ class EditEstoque extends Component {
         this.props
 
             .updateEstoque(
-                this.state.id,
-                { ...this.state.currentEstoque}
+                this.state.currentEstoque.id,
+                this.state.currentEstoque
             )
 
             .then(() => {

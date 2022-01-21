@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servicos",
+  "info": {
+    "name": "servico",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "descricao": {
+      "type": "string"
+    },
+    "custo": {
+      "type": "integer"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "tipo": {
+      "type": "string"
+    },
+    "urgente": {
+      "type": "string"
+    },
+    "paciente": {
+      "via": "servicos",
+      "model": "paciente"
+    },
+    "funcionario": {
+      "via": "servicos",
+      "model": "funcionario"
+    }
+  }
+}

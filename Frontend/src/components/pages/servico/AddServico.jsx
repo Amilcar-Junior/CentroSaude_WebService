@@ -54,11 +54,11 @@ class AddServico extends Component {
     async getOptionsPaciente() {
         const paciente = await http.get("/pacientes");
 
-        const data = paciente.data.data;
+        const data = paciente.data;
 
         const options = data.map((e) => ({
             value: e.id,
-            label: e.attributes.nome,
+            label: e.nome,
         }));
 
         this.setState({ selectOptionsPaciente: options });
@@ -67,11 +67,11 @@ class AddServico extends Component {
     async getOptionsFuncionario() {
         const funcionario = await http.get("/funcionarios");
 
-        const data = funcionario.data.data;
+        const data = funcionario.data;
         const medico = "Medico (a)";
-        const options = data.filter(c => c.attributes.cargo === medico).map((e) => ({
+        const options = data.filter(c => c.cargo === medico).map((e) => ({
             value: e.id,
-            label: e.attributes.nome,
+            label: e.nome,
         }));
 
         this.setState({ selectOptionsFuncionario: options });
@@ -151,11 +151,11 @@ class AddServico extends Component {
 
     async saveServico() {
 
-        const { descricao, custo, date, tipo, urgente, } = this.state;
+        const { descricao, custo, date, tipo, urgente,paciente,funcionario } = this.state;
         console.log(this.state);
 
         this.props
-            .createServico(descricao, custo, date, tipo, urgente,)
+            .createServico(descricao, custo, date, tipo, urgente,[paciente],[funcionario])
             .then(() => {
                 this.setState({
 

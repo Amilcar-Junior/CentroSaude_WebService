@@ -26,7 +26,6 @@ class EditServico extends Component {
         this.saveServico = this.saveServico.bind(this);
 
         this.state = {
-            id: "",
             currentServico: {
 
                 descricao: "",
@@ -59,11 +58,11 @@ class EditServico extends Component {
     async getOptionsPaciente() {
         const paciente = await http.get("/pacientes");
 
-        const data = paciente.data.data;
+        const data = paciente.data;
 
         const options = data.map((e) => ({
             value: e.id,
-            label: e.attributes.nome,
+            label: e.nome,
         }));
 
         this.setState({ selectOptionsPaciente: options });
@@ -72,11 +71,11 @@ class EditServico extends Component {
     async getOptionsFuncionario() {
         const funcionario = await http.get("/funcionarios");
 
-        const data = funcionario.data.data;
+        const data = funcionario.data;
 
         const options = data.map((e) => ({
             value: e.id,
-            label: e.attributes.nome,
+            label: e.nome,
         }));
 
         this.setState({ selectOptionsFuncionario: options });
@@ -169,19 +168,21 @@ class EditServico extends Component {
     }
     onChangePaciente(e) {
         const paciente = e.value;
-
+const nome_paciente = e.label
         this.setState(function (prevState) {
             return {
                 currentServico: {
                     ...prevState.currentServico,
 
                     paciente: paciente,
-                },
+                    
+                },nome_paciente: nome_paciente
             };
         });
     }
     onChangeFuncionario(e) {
         const funcionario = e.value;
+        const nome_funcionario = e.label;
 
         this.setState(function (prevState) {
             return {
@@ -189,7 +190,7 @@ class EditServico extends Component {
                     ...prevState.currentServico,
 
                     funcionario: funcionario,
-                },
+                },nome_funcionario: nome_funcionario
             };
         });
     }
@@ -212,10 +213,10 @@ class EditServico extends Component {
 
     getServico(id) {
         ServicosService.get(id).then((response) => {
-            console.log(response.data.data)
+            console.log(response);
             this.setState({
-                currentServico: response.data.data.attributes,
-                id: response.data.data.id
+                currentServico: response.data,
+               
             });
         });
     }
@@ -225,8 +226,8 @@ class EditServico extends Component {
         this.props
 
             .updateServico(
-                this.state.id,
-                { ...this.state.currentServico }
+                this.state.currentServico.id,
+                this.state.currentServico
             )
 
             .then(() => {
@@ -272,7 +273,8 @@ class EditServico extends Component {
                                             <div className="col-lg-6">
                                                 <div className="form-group">
                                                     <h6 htmlFor="paciente">Paciente ( o selecionado é{" "}
-                                                        <strong>{currentServico.paciente}</strong> )</h6>
+                                                        <strong>{currentServico.paciente.nome}</strong>
+                                                        <strong>{this.state.nome_paciente}</strong> )</h6>
 
                                                     
                                                     <Select
@@ -287,7 +289,9 @@ class EditServico extends Component {
                                             <div className="col-lg-6">
                                                 <div className="form-group">
                                                     <h6 htmlFor="funcionario">Funcionario ( o selecionado é{" "}
-                                                        <strong>{currentServico.funcionario}</strong> )</h6>
+                                                        <strong>{currentServico.funcionario.nome}</strong>
+                                                        <strong>{this.state.nome_funcionario}</strong>
+                                                         )</h6>
 
                                                     
                                                     <Select

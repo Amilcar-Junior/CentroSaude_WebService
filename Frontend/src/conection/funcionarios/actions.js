@@ -21,22 +21,22 @@ export const createFuncionario =
 
             const res = await FuncionariosService.create({
 
-                data:{bi, nome, morada, email, contacto, especialidade, cargo}
+                bi, nome, morada, email, contacto, especialidade, cargo
 
             });
 
-            const { data } = res.data;
+            
             dispatch({
 
                 type: CREATE_FUNCIONARIO,
 
-                payload: data,
+                payload: res.data,
                 
 
             });
 
             toast.success('Funcionario adicionado com sucesso!');
-            return Promise.resolve(data);
+            return Promise.resolve(res.data);
 
         } catch (err) {
 
@@ -52,12 +52,12 @@ export const retrieveFuncionarios = () => async (dispatch) => {
     try {
 
         const res = await FuncionariosService.getAll();
-        const { data } = res.data;
+
         dispatch({
 
             type: RETRIEVE_FUNCIONARIOS,
 
-            payload: data,
+            payload: res.data,
 
         });
 
@@ -70,22 +70,22 @@ export const retrieveFuncionarios = () => async (dispatch) => {
 
 };
 
-export const updateFuncionario = (id, dados) => async (dispatch) => {
+export const updateFuncionario = (id, data) => async (dispatch) => {
 
     try {
 
-        const res = await FuncionariosService.update(id, {data: dados});
-        const { data } = res.data;
+        const res = await FuncionariosService.update(id, data);
+
         dispatch({
 
             type: UPDATE_FUNCIONARIO,
 
-            payload: data,
+            payload: res.data,
 
         });
 
         toast.success('Funcionario foi alterado com sucesso!')
-        return Promise.resolve(data);
+        return Promise.resolve(res.data);
 
     } catch (err) {
         toast.error('Funcionario não foi alterado!')

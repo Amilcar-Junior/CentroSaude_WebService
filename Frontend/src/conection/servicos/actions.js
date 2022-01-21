@@ -15,28 +15,28 @@ import ServicosService from "./servicosService";
 
 export const createServico =
 
-    (descricao, custo, date, tipo, urgente,) => async (dispatch) => {
+    (descricao, custo, date, tipo, urgente, paciente, funcionario,) => async (dispatch) => {
 
         try {
 
             const res = await ServicosService.create({
 
-                data:{descricao, custo, date, tipo, urgente,}
+                descricao, custo, date, tipo, urgente, paciente, funcionario,
 
             });
 
-            const { data } = res.data;
+
             dispatch({
 
                 type: CREATE_SERVICO,
 
-                payload: data,
+                payload: res.data,
                 
 
             });
 
             toast.success('Servico adicionado com sucesso!');
-            return Promise.resolve(data);
+            return Promise.resolve(res.data);
 
         } catch (err) {
 
@@ -52,12 +52,12 @@ export const retrieveServicos = () => async (dispatch) => {
     try {
 
         const res = await ServicosService.getAll();
-        const { data } = res.data;
+
         dispatch({
 
             type: RETRIEVE_SERVICOS,
 
-            payload: data,
+            payload: res.data,
 
         });
 
@@ -70,22 +70,22 @@ export const retrieveServicos = () => async (dispatch) => {
 
 };
 
-export const updateServico = (id, dados) => async (dispatch) => {
+export const updateServico = (id, data) => async (dispatch) => {
 
     try {
 
-        const res = await ServicosService.update(id, {data: dados});
-        const { data } = res.data;
+        const res = await ServicosService.update(id, data);
+
         dispatch({
 
             type: UPDATE_SERVICO,
 
-            payload: data,
+            payload: res.data,
 
         });
 
         toast.success('Servico foi alterado com sucesso!')
-        return Promise.resolve(data);
+        return Promise.resolve(res.data);
 
     } catch (err) {
         toast.error('Servico não foi alterado!')

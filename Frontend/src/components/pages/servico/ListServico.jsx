@@ -8,7 +8,27 @@ import { retrieveServicos, deleteServico } from "../../../conection/servicos/act
 
 import moment from 'moment';
 
+import { ExportCSV } from '../../ExportEx/ExportCSV'
+
+import ConfirmationDialog from "../../Modal/ConfirmationDialog";
+
 class ListServico extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleModalOpen = this.handleModalOpen.bind(this);
+
+    this.state = {
+
+      isOpen: false,
+      itemId: null,
+
+    };
+  }
+
+  handleModalOpen(id) {
+    this.setState({ isOpen: !this.state.isOpen, itemId: id });
+  }
 
   componentDidMount() {
     this.props.retrieveServicos();
@@ -19,7 +39,7 @@ class ListServico extends Component {
     this.props.deleteServico(id).then(() => {
 
       this.props.retrieveServicos();
-
+this.handleModalOpen();
     });
 
   };
@@ -48,16 +68,18 @@ class ListServico extends Component {
             <div className="col-lg-12">
               <div className="end" />
               <h3 style={{ color: "#456caf" }}>Lista de Serviços</h3>
-              <br />
+             
 
-              <div>
-                <div className="col-2">
+              <div className="row mt-4">
+                <div className="col-lg-4">
                   <Link to="/add-servico" className="btn btn-success">
                     <i class="fas fa-plus" /> Adicionar
                   </Link>
                 </div>
-                <br />
-
+                <div className="col-lg-4 center">
+                  <ExportCSV csvData={this.props.servicos} fileName="Serviços" />
+                </div>
+                <div className="end" />
 
               </div>
 
@@ -68,6 +90,10 @@ class ListServico extends Component {
 
                     <tr>
                       <th>#</th>
+
+                      <th>Paciente</th>
+                      
+                      <th>Medico (a)</th>
 
                       <th>Tipo</th>
 
@@ -91,10 +117,14 @@ class ListServico extends Component {
 
                       servicos.map(
 
-                        ({ id, attributes: { descricao, custo, date, tipo, urgente} }, i) => (
+                        ({ id, descricao, custo, date, tipo, urgente, paciente, funcionario }, i) => (
 
                           <tr key={i}>
                             <td>{i+1}</td>
+
+                            <td>{paciente.nome}</td>
+
+                            <td>{funcionario.nome}</td>
 
                             <td>{tipo}</td>
 
@@ -112,7 +142,9 @@ class ListServico extends Component {
                                 <div className="col-xs-12 col-md-6 text-center">
                                   <Link
                                     className="btn btn-danger btn-sm me-2"
-                                    onClick={() => this.removeServico(id)}>
+                                    onClick={() =>
+                                      this.handleModalOpen(id)
+                                    }>
 
                                     <i className="fas fa-trash" /> Eliminar
                                   </Link>
@@ -144,6 +176,13 @@ class ListServico extends Component {
             </div>
           </div>
         </div>
+        <ConfirmationDialog
+          title="Eliminar Serviço?"
+          openModal={this.handleModalOpen}
+          modalIsOpen={this.state.isOpen}
+          remove={this.removeServico}
+          id={this.state.itemId}
+        />
       </>
     );
 

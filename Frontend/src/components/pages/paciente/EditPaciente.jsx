@@ -21,11 +21,11 @@ class EditPaciente extends Component {
         this.savePaciente = this.savePaciente.bind(this);
 
         this.state = {
-            id: "",
+            
             currentPaciente: {
                 
                 
-                bi: "",
+            bi: "",
             nome: "",
             data_nascimento: "",
             morada: "",
@@ -114,10 +114,9 @@ class EditPaciente extends Component {
 
     getPaciente(id) {
         PacientesService.get(id).then((response) => {
-            console.log(response.data.data)
             this.setState({
-                currentPaciente: response.data.data.attributes,
-                id: response.data.data.id
+                currentPaciente: response.data,
+                id: response.data.id
             });
         });
     }
@@ -127,8 +126,8 @@ class EditPaciente extends Component {
         this.props
 
             .updatePaciente(
-                this.state.id,
-                { ...this.state.currentPaciente}
+                this.state.currentPaciente.id,
+                this.state.currentPaciente
             )
 
             .then(() => {

@@ -21,22 +21,23 @@ export const createEstoque =
 
             const res = await EstoquesService.create({
 
-                data:{nome_produto, quantidade}
+                nome_produto, 
+                quantidade
 
             });
 
-            const { data } = res.data;
+            
             dispatch({
 
                 type: CREATE_ESTOQUE,
 
-                payload: data,
+                payload: res.data,
                 
 
             });
 
             toast.success('Estoque adicionado com sucesso!');
-            return Promise.resolve(data);
+            return Promise.resolve(res.data);
 
         } catch (err) {
 
@@ -52,12 +53,12 @@ export const retrieveEstoques = () => async (dispatch) => {
     try {
 
         const res = await EstoquesService.getAll();
-        const { data } = res.data;
+        
         dispatch({
 
             type: RETRIEVE_ESTOQUES,
 
-            payload: data,
+            payload: res.data,
 
         });
 
@@ -70,22 +71,22 @@ export const retrieveEstoques = () => async (dispatch) => {
 
 };
 
-export const updateEstoque = (id, dados) => async (dispatch) => {
+export const updateEstoque = (id, data) => async (dispatch) => {
 
     try {
 
-        const res = await EstoquesService.update(id, {data: dados});
-        const { data } = res.data;
+        const res = await EstoquesService.update(id, data);
+        
         dispatch({
 
             type: UPDATE_ESTOQUE,
 
-            payload: data,
+            payload: res.data,
 
         });
 
         toast.success('Estoque foi alterado com sucesso!')
-        return Promise.resolve(data);
+        return Promise.resolve(res.data);
 
     } catch (err) {
         toast.error('Estoque não foi alterado!')

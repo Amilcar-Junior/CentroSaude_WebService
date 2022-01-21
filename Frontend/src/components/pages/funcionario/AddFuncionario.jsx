@@ -134,8 +134,7 @@ class AddFuncionario extends Component {
                     contacto: "",
                     especialidade: "",
                     cargo: "",
-        
-                    
+    
                     nome_especialidade: "",
         
                     
