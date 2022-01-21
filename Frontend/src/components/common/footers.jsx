@@ -196,7 +196,7 @@ class Footers extends Component {
     render() {
         return (
             <>
-                {/* ===============  Newsletter area start =============== */}h
+                {/* ===============  Newsletter area start =============== */}
                 
                 {/* ===============  Newsletter area end =============== */}
 
@@ -204,21 +204,22 @@ class Footers extends Component {
                 <div className="footer-area">
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-4 col-md-12">
+                            <div className="col-lg-5 col-md-12">
                                 <div className="footer-info">
                                     <div className="footer-logo">
                                         <img src={secondLogo} alt="" className="img-fluid" />
                                     </div>
-                                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid maxime aut ut voluptate
-                                        dolorum nisi ducimus ratione</p>
+                                    <p>Prevenir doenças, aliviar o sofrimento e curar os doentes:
+                                        <br/>- Esse é o nosso trabalho!
+                                    </p>
                                     <div className="footer-social-icons">
-                                        <h5>Follow Us:</h5>
+                                        <h5>Siga-nos:</h5>
                                         <ul>
                                             <li>
-                                                <Link to={"#"}><i className="bx bxl-facebook" /></Link>
+                                            <a href={"https://www.facebook.com/mika.junior.1"}> <i className="bx bxl-facebook"/></a>
                                             </li>
                                             <li>
-                                                <Link to={"#"}><i className="bx bxl-instagram" /></Link>
+                                            <a href={"https://www.instagram.com/mikamikaus/"}> <i className="bx bxl-instagram"/></a>
                                             </li>
                                             <li>
                                                 <Link to={"#"}><i className="bx bxl-twitter" /></Link>
@@ -230,53 +231,58 @@ class Footers extends Component {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-lg-8 col-md-12">
+                            <div className="col-lg-7 col-md-12">
                                 <div className="row">
                                     <div className="col-lg-5 col-md-5 col-sm-7">
                                         <div className="footer-links">
-                                            <h5 className="widget-title">Contact us</h5>
+                                            <h5 className="widget-title">Contate-nos</h5>
                                             <div className="contact-box">
                                                 <span><i className="bx bx-phone" /></span>
                                                 <div>
-                                                    <a href="tel:+01852-1265122">+01852-1265122</a>
-                                                    <a href="tel:+01852-1265122">+01852-1265122</a>
+                                                    <a href="tel:+238-580-30-55">+238-580-30-55</a>
+                                                    <a href="tel:+238-972-50-79">+238-972-50-79</a>
                                                 </div>
                                             </div>
                                             <div className="contact-box">
                                                 <span><i className="bx bx-mail-send" /></span>
                                                 <div>
-                                                    <a href="mailto:info@example.com">info@example.com</a>
-                                                    <a href="mailto:support@example.com">support@example.com</a>
+                                                    <a href="mailto:amilcarjunior2000@gmail.com">amilcarjunior2000@gmail.com</a>
+                                                    <a href="mailto:kevinbaptista321@gmail.com">kevinbaptista321@gmail.com</a>
                                                 </div>
                                             </div>
                                             <div className="contact-box">
                                                 <span><i className="bx bx-location-plus" /></span>
                                                 <div>
-                                                    <Link to={"#"}>2752 Willison Street <br />
-                                                        Eagan, United State</Link>
+                                                    {/* <Link to={"#"}>Praia, Cabo Verde</Link> */}
+                                                    <a href="https://www.google.com/maps/d/u/0/viewer?ie=UTF8&t=m&oe=UTF8&msa=0&mid=1_OEJF4hXlrnx8z9tkLOtOgOCcMs&ll=14.923057000000002%2C-23.515548999999993&z=17">Praia, Cabo Verde</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-lg-3 col-md-3 col-sm-5">
+                                    <div className="col-lg-2 col-md-3 col-sm-5">
                                         <div className="footer-links">
-                                            <h5 className="widget-title">support</h5>
+                                            <h5 className="widget-title">Suporte</h5>
                                             <div className="category-list">
                                                 <ul>
                                                     <li>
-                                                        <Link to={`${process.env.PUBLIC_URL}/contact`} onClick={this.scrollTop} >Contact us</Link>
+                                                        <Link to={`${process.env.PUBLIC_URL}/contact`} onClick={this.scrollTop} >Contate-nos</Link>
                                                     </li>
                                                     <li>
-                                                        <Link to={`${process.env.PUBLIC_URL}/about-us`} onClick={this.scrollTop}>About us</Link>
+                                                        <Link to={`${process.env.PUBLIC_URL}/about-us`} onClick={this.scrollTop}>Sobre nós</Link>
                                                     </li>
                                                     <li>
-                                                        <Link to={`${process.env.PUBLIC_URL}/destination`} onClick={this.scrollTop} >Destinations</Link>
+                                                        <Link to={`${process.env.PUBLIC_URL}/list-paciente`} onClick={this.scrollTop} >Paciente</Link>
                                                     </li>
                                                     <li>
-                                                        <Link to={`${process.env.PUBLIC_URL}/blog`} onClick={this.scrollTop}>our Blogs</Link>
+                                                        <Link to={`${process.env.PUBLIC_URL}/list-funcionario`} onClick={this.scrollTop}>Funcionario</Link>
                                                     </li>
                                                     <li>
-                                                        <Link to={`${process.env.PUBLIC_URL}/package`} className="sub-item" onClick={this.scrollTop}>Package</Link>
+                                                        <Link to={`${process.env.PUBLIC_URL}/list-estoque`} className="sub-item" onClick={this.scrollTop}>Estoque</Link>
+                                                        
+                                                    </li>
+                                                    <li>
+                                                        <Link to={`${process.env.PUBLIC_URL}/list-servico`} className="sub-item" onClick={this.scrollTop}>Serviços</Link>
+                                                        
                                                     </li>
                                                 </ul>
                                             </div>
@@ -289,7 +295,7 @@ class Footers extends Component {
                         <div className="row">
                             <div className="col-lg-12">
                                 <div className="copyrigth-area">
-                                    <p>Copyright 2021 <Link to={`#`}>SandWatch</Link> | Design By <Link to={`#`}>Ruben Correia</Link></p>
+                                    <p>Copyright 2021 <Link to={`#`}>Centro Saude CV</Link> | Programado por <a href=""></a><Link to={`#`}>Amilcar Júnior / Kevin Delgado</Link></p>
                                 </div>
                             </div>
                         </div>

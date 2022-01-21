@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import HomePage from "../pages/home/HomePage";
+import HomePage from "../pages/home2/HomePage";
 import Headers from "../common/headers";
 import Footers from "../common/footers";
 

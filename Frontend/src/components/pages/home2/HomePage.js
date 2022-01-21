@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import MainBanner from "./MainBanner";
-import Packages from "./Packages";
-import Destinations from "./Destinations";
-import Blog from "./Blog";
-import Features from "./Features";
-import Review from "./Review";
+import AboutWrapper from "./AboutWrapper";
+
 import Achievement from "./Achievement";
 
 //Define Default Content
@@ -42,19 +39,16 @@ class HomePageTwo extends Component {
                    <span  style={{'--i': 18}}/>
                    <span  style={{'--i': 19}}/>
                    <span  style={{'--i': 20}}/>
-                   <div className="rocket" />
+                   {/* <div className="rocket" /> */}
                </div>
            </div>
            {/* End Preloader Area */}
 
            {/*---------Start Imported All Sections-----------*/}
             <MainBanner/>
-            <Packages/>
+            <AboutWrapper/>
+
            <Achievement/>
-           <Destinations/>
-           <Review/>
-           <Features/>
-           <Blog/>
            {/*---------End Imported All Sections-----------*/}
        </div>
     );

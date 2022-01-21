@@ -63,7 +63,7 @@ class MainBanner extends Component {
                         <div className="container">
                             <div className="slider-content wow fadeInLeft animated" data-wow-delay="300ms" data-wow-duration="1500ms">
                                 <h2>Praias de Cabo Verde</h2>
-                                <h5>Santiago</h5>
+                                <h5>Medicos Qualificados</h5>
                                 <div className="banner-btn">
                                     <Link to={`${process.env.PUBLIC_URL}/package`} className="btn-common">Ver Mas</Link>
                                 </div>
@@ -74,7 +74,7 @@ class MainBanner extends Component {
                         <div className="container">
                             <div className="slider-content wow fadeInLeft animated" data-wow-delay="300ms" data-wow-duration="1500ms">
                                 <h2>Praias de Cabo Verde</h2>
-                                <h5>Boa Vista</h5>
+                                <h5>Sua saúde é a nossa prioridade</h5>
                                 <div className="banner-btn">
                                     <Link to={`${process.env.PUBLIC_URL}/package`} className="btn-common">Ver Mas</Link>
                                 </div>
@@ -85,7 +85,7 @@ class MainBanner extends Component {
                         <div className="container">
                             <div className="slider-content wow fadeInLeft animated" data-wow-delay="300ms" data-wow-duration="1500ms">
                                 <h2>Praias de Cabo Verde</h2>
-                                <h5>Sal</h5>
+                                <h5>mais vida</h5>
                                 <div className="banner-btn">
                                     <Link to={`${process.env.PUBLIC_URL}/package`} className="btn-common">Ver Mas</Link>
                                 </div>

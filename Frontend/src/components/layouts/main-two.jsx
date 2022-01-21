@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Footers from "../common/footers";
 import HeaderTwo from "../common/headers2";
-import HomePageTwo from "../pages/home2/HomePage";
+import HomePageTwo from "../pages/home/HomePage";
 
 //Second layout
 class MainTwoLayout extends Component {

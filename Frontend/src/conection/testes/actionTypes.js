@@ -1,0 +1,7 @@
+export const CREATE_TESTE = "CREATE_TESTE";
+
+export const RETRIEVE_TESTES = "RETRIEVE_TESTES";
+
+export const UPDATE_TESTE = "UPDATE_TESTE";
+
+export const DELETE_TESTE = "DELETE_TESTE";

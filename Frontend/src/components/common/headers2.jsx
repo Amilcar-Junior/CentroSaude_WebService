@@ -71,17 +71,11 @@ class HeaderTwo extends Component {
                                             <img src={secondLogo} alt="" className="img-fluid" />
                                         </div>
                                         <ul>
-                                            <li className="has-child-menu">
-                                                <Link to={"#"}>Home</Link>
-                                                <i className="fl flaticon-plus">+</i>
-                                                <ul className="sub-menu">
-                                                    <li>
-                                                        <NavLink activeClassName="active" to={`${process.env.PUBLIC_URL}/`} className="sub-item" onClick={this.scrollTop}>Home Page 1</NavLink>
-                                                    </li>
-                                                    <li>
-                                                        <NavLink activeClassName="active" to={`${process.env.PUBLIC_URL}/home-page-2`} className="sub-item" onClick={this.scrollTop}>Home Page 2</NavLink>
-                                                    </li>
-                                                </ul>
+                                        <li>
+                                                <NavLink activeClassName="active" to={`${process.env.PUBLIC_URL}/`} onClick={this.scrollTop}>Home</NavLink>
+                                            </li>
+                                            <li>
+                                                <NavLink activeClassName="active" to={`${process.env.PUBLIC_URL}/list-teste`} onClick={this.scrollTop}>Teste</NavLink>
                                             </li>
                                             <li>
                                                 <NavLink activeClassName="active" to={`${process.env.PUBLIC_URL}/about-us`} onClick={this.scrollTop}>About us</NavLink>
