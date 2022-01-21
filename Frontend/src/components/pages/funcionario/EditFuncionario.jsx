@@ -24,7 +24,6 @@ class EditFuncionario extends Component {
         this.saveFuncionario = this.saveFuncionario.bind(this);
 
         this.state = {
-            id: "",
             currentFuncionario: {
 
                 bi: "",
@@ -186,8 +185,8 @@ class EditFuncionario extends Component {
         FuncionariosService.get(id).then((response) => {
             console.log(response.data.data)
             this.setState({
-                currentFuncionario: response.data.data.attributes,
-                id: response.data.data.id
+                currentFuncionario: response.data,
+                id: response.data.id
             });
         });
     }
@@ -197,8 +196,8 @@ class EditFuncionario extends Component {
         this.props
 
             .updateFuncionario(
-                this.state.id,
-                { ...this.state.currentFuncionario }
+                this.state.currentFuncionarioid,
+                this.state.currentFuncionario
             )
 
             .then(() => {

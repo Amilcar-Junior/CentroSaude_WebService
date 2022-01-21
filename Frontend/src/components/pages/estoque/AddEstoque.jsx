@@ -40,8 +40,6 @@ class AddEstoque extends Component {
     async saveEstoque() {
 
         const { nome_produto, quantidade} = this.state;
-        console.log(this.state);
-        console.log(nome_produto, quantidade);
 
         this.props
             .createEstoque(nome_produto, quantidade)

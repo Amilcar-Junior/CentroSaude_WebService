@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/requisicaos",
-      "handler": "requisicao.find",
+      "path": "/funcionarios",
+      "handler": "funcionario.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/requisicaos/count",
-      "handler": "requisicao.count",
+      "path": "/funcionarios/count",
+      "handler": "funcionario.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/requisicaos/:id",
-      "handler": "requisicao.findOne",
+      "path": "/funcionarios/:id",
+      "handler": "funcionario.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/requisicaos",
-      "handler": "requisicao.create",
+      "path": "/funcionarios",
+      "handler": "funcionario.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/requisicaos/:id",
-      "handler": "requisicao.update",
+      "path": "/funcionarios/:id",
+      "handler": "funcionario.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/requisicaos/:id",
-      "handler": "requisicao.delete",
+      "path": "/funcionarios/:id",
+      "handler": "funcionario.delete",
       "config": {
         "policies": []
       }

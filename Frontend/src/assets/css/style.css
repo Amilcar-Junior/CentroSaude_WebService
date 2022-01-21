@@ -5495,3 +5495,56 @@ li.package-card-sm .package-info h5 span {
   justify-items: center;
   text-align: center;
 }
+
+.center {
+
+  color: #FF7F47;
+
+  margin: 0;
+  justify-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+
+/*modal styles*/
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  width: fit-content;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+}
+
+.ModalImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  padding: 10px;
+  max-width: 80vh;
+  min-width: 30vw;
+  max-width: 60vw;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+
+}
+
+.ModalDialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  padding: 10px;
+  max-width: 80vh;
+  min-width: 30vw;
+  max-width: 60vw;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+}

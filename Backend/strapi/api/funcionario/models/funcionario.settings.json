@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "funcionarios",
+  "info": {
+    "name": "funcionario",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nome": {
+      "type": "string"
+    },
+    "morada": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "contacto": {
+      "type": "integer"
+    },
+    "especialidade": {
+      "type": "string"
+    },
+    "cargo": {
+      "type": "string"
+    },
+    "servicos": {
+      "via": "funcionario",
+      "collection": "servico"
+    },
+    "bi": {
+      "type": "string"
+    }
+  }
+}

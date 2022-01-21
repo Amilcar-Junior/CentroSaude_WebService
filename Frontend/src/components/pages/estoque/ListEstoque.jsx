@@ -6,7 +6,28 @@ import { Link } from "react-router-dom";
 
 import { retrieveEstoques, deleteEstoque } from "../../../conection/estoques/actions";
 
+import { ExportCSV } from '../../ExportEx/ExportCSV'
+
+import ConfirmationDialog from "../../Modal/ConfirmationDialog";
+
+
 class ListEstoque extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleModalOpen = this.handleModalOpen.bind(this);
+
+    this.state = {
+
+      isOpen: false,
+      itemId: null,
+
+    };
+  }
+
+  handleModalOpen(id) {
+    this.setState({ isOpen: !this.state.isOpen, itemId: id });
+  }
 
   componentDidMount() {
     this.props.retrieveEstoques();
@@ -17,7 +38,7 @@ class ListEstoque extends Component {
     this.props.deleteEstoque(id).then(() => {
 
       this.props.retrieveEstoques();
-
+      this.handleModalOpen();
     });
 
   };
@@ -30,7 +51,7 @@ class ListEstoque extends Component {
       <>
         <div className="container">
           <div className="row">
-          <div className="end" />
+            <div className="end" />
             <div className="col-1">
               <div class="input-group flex-nowrap">
                 <span class="input-group-text" id="addon-wrapping">
@@ -46,18 +67,23 @@ class ListEstoque extends Component {
             <div className="col-lg-12">
               <div className="end" />
               <h3 style={{ color: "#456caf" }}>Lista de Estoques</h3>
-              <br />
 
-              <div>
-                <div className="col-2">
-                  <Link to="/add-Estoque" className="btn btn-success">
+
+              <div className="row mt-4">
+                <div className="col-lg-4">
+                  <Link to="/add-estoque" className="btn btn-success">
                     <i class="fas fa-plus" /> Adicionar
                   </Link>
                 </div>
-                <br />
-
+                <div className="col-lg-4 center">
+                  <ExportCSV csvData={this.props.estoques} fileName="Estoques" />
+                </div>
 
               </div>
+
+              <div className="end" />
+
+
 
               <div className="table-responsive">
                 <table className="table table-striped">
@@ -83,10 +109,10 @@ class ListEstoque extends Component {
 
                       estoques.map(
 
-                        ({ id, attributes: { nome_produto, quantidade} }, i) => (
+                        ({ id, nome_produto, quantidade }, i) => (
 
                           <tr key={i}>
-                            <td>{id}</td>
+                            <td>{i + 1}</td>
 
                             <td>{nome_produto}</td>
 
@@ -98,7 +124,9 @@ class ListEstoque extends Component {
                                 <div className="col-xs-12 col-md-6 text-center">
                                   <Link
                                     className="btn btn-danger btn-sm me-2"
-                                    onClick={() => this.removeEstoque(id)}>
+                                    onClick={() =>
+                                      this.handleModalOpen(id)
+                                    }>
 
                                     <i className="fas fa-trash" /> Eliminar
                                   </Link>
@@ -130,6 +158,13 @@ class ListEstoque extends Component {
             </div>
           </div>
         </div>
+        <ConfirmationDialog
+          title="Eliminar Estoque?"
+          openModal={this.handleModalOpen}
+          modalIsOpen={this.state.isOpen}
+          remove={this.removeEstoque}
+          id={this.state.itemId}
+        />
       </>
     );
 

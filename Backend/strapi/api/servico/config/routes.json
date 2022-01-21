@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/equipamentos",
-      "handler": "equipamento.find",
+      "path": "/servicos",
+      "handler": "servico.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/equipamentos/count",
-      "handler": "equipamento.count",
+      "path": "/servicos/count",
+      "handler": "servico.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/equipamentos/:id",
-      "handler": "equipamento.findOne",
+      "path": "/servicos/:id",
+      "handler": "servico.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/equipamentos",
-      "handler": "equipamento.create",
+      "path": "/servicos",
+      "handler": "servico.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/equipamentos/:id",
-      "handler": "equipamento.update",
+      "path": "/servicos/:id",
+      "handler": "servico.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/equipamentos/:id",
-      "handler": "equipamento.delete",
+      "path": "/servicos/:id",
+      "handler": "servico.delete",
       "config": {
         "policies": []
       }

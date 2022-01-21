@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/estoques",
+      "handler": "estoque.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/estoques/count",
+      "handler": "estoque.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/estoques/:id",
+      "handler": "estoque.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/estoques",
+      "handler": "estoque.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/estoques/:id",
+      "handler": "estoque.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/estoques/:id",
+      "handler": "estoque.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

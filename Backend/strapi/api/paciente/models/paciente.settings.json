@@ -1,8 +1,9 @@
 {
   "kind": "collectionType",
-  "collectionName": "requisicaos",
+  "collectionName": "pacientes",
   "info": {
-    "name": "Requisicao"
+    "name": "paciente",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -11,24 +12,24 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "date_requisicao": {
-      "type": "date"
-    },
-    "tipo_manutencao": {
+    "nome": {
       "type": "string"
     },
-    "date_conclusao": {
+    "data_nascimento": {
       "type": "date"
     },
-    "status": {
+    "morada": {
       "type": "string"
     },
-    "custo": {
+    "contacto": {
       "type": "integer"
     },
-    "equipamento": {
-      "model": "equipamento",
-      "via": "requisicaos"
+    "servicos": {
+      "via": "paciente",
+      "collection": "servico"
+    },
+    "bi": {
+      "type": "string"
     }
   }
 }

@@ -6,7 +6,27 @@ import { Link } from "react-router-dom";
 
 import { retrievePacientes, deletePaciente } from "../../../conection/pacientes/actions";
 
+import { ExportCSV } from '../../ExportEx/ExportCSV'
+
+import ConfirmationDialog from "../../Modal/ConfirmationDialog";
+
 class ListPaciente extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleModalOpen = this.handleModalOpen.bind(this);
+
+    this.state = {
+
+      isOpen: false,
+      itemId: null,
+
+    };
+  }
+
+  handleModalOpen(id) {
+    this.setState({ isOpen: !this.state.isOpen, itemId: id });
+  }
 
   componentDidMount() {
     this.props.retrievePacientes();
@@ -17,7 +37,7 @@ class ListPaciente extends Component {
     this.props.deletePaciente(id).then(() => {
 
       this.props.retrievePacientes();
-
+this.handleModalOpen();
     });
 
   };
@@ -46,18 +66,20 @@ class ListPaciente extends Component {
             <div className="col-lg-12">
               <div className="end" />
               <h3 style={{ color: "#456caf" }}>Lista de Pacientes</h3>
-              <br />
+              
 
-              <div>
-                <div className="col-2">
+              <div className="row mt-4">
+                <div className="col-lg-4">
                   <Link to="/add-paciente" className="btn btn-success">
                     <i class="fas fa-plus" /> Adicionar
                   </Link>
                 </div>
-                <br />
-
+                <div className="col-lg-4 center">
+                  <ExportCSV csvData={this.props.pacientes} fileName="Paciente" />
+                </div>
 
               </div>
+              <div className="end" />
 
               <div className="table-responsive">
                 <table className="table table-striped">
@@ -89,7 +111,7 @@ class ListPaciente extends Component {
 
                       pacientes.map(
 
-                        ({ id, attributes: { bi, nome, data_nascimento, morada, contacto } }, i) => (
+                        ({ id, bi, nome, data_nascimento, morada, contacto }, i) => (
 
                           <tr key={i}>
                             <td>{i+1}</td>
@@ -110,7 +132,9 @@ class ListPaciente extends Component {
                                 <div className="col-xs-12 col-md-6 text-center">
                                   <Link
                                     className="btn btn-danger btn-sm me-2"
-                                    onClick={() => this.removePaciente(id)}>
+                                    onClick={() =>
+                                      this.handleModalOpen(id)
+                                    }>
 
                                     <i className="fas fa-trash" /> Eliminar
                                   </Link>
@@ -142,6 +166,13 @@ class ListPaciente extends Component {
             </div>
           </div>
         </div>
+        <ConfirmationDialog
+          title="Eliminar Paciente?"
+          openModal={this.handleModalOpen}
+          modalIsOpen={this.state.isOpen}
+          remove={this.removePaciente}
+          id={this.state.itemId}
+        />
       </>
     );
 
