@@ -88,8 +88,7 @@ class AboutUs extends Component {
                                 <div className="col-lg-6">
                                     <div className="contact-details">
                                         <h5 className="contact-d-head">Entrar em contato</h5>
-                                        <p>Suspendisse dolor risus, congue ac diam id, viverra facilisis dolor. Cras nec purus sagittis, varius tortor at, maximus erat. Sed at tellus id tellus lobortis dictum. Mauris dignissim, turpis vitae ullamcorper fermentum, sapien arcu aliquam arcu, in viverra quam est ac ex. Cras sed lectus eu.
-                                        </p>
+                                        
                                         <ul className="office-clock">
                                             <li>
                                                 <div className="clock-icon"><i className="flaticon-clock-1" /></div>
