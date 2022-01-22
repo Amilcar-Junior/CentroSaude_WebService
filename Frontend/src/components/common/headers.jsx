@@ -135,7 +135,7 @@ class Headers extends Component {
                                             </li>
 
                                             <li>
-                                                <NavLink activeClassName="active" to={`${process.env.PUBLIC_URL}/contact`} onClick={this.scrollTop} >Contact Us</NavLink>
+                                                <NavLink activeClassName="active" to={`${process.env.PUBLIC_URL}/contact`} onClick={this.scrollTop} >Contate-nos</NavLink>
                                             </li>
 
                                         </ul>
@@ -170,7 +170,7 @@ class Headers extends Component {
                                         <div className="sidebar-contact">
                                             <ul>
                                                 <li className="sidebar-single-contact"><i className="bx bxs-phone" />
-                                                    <Link to={`tel:+17632275032`} >+1 763-227-5032</Link>
+                                                    <Link to={`tel:+2385803055`} >+238 580 30 55</Link>
                                                 </li>
                                                 <li className="sidebar-single-contact"><i className="bx bxs-envelope" />
                                                     <Link to={`mailto:info@example.com`} >info@example.com</Link>

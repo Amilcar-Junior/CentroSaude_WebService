@@ -348,7 +348,7 @@ class EditFuncionario extends Component {
                                                 </div>
                                             </div>
 
-
+                                            <div className="end"/>
 
                                             <div className="col-lg-12">
                                                 <div className="center">
