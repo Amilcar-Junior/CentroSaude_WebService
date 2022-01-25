@@ -33,7 +33,7 @@ class Headers extends Component {
                                             <b>CV</b>
                                         </h3>
                                         <div className="navbar-icons">
-                                            <div className="searchbar-open">
+                                            {/* <div className="searchbar-open">
                                                 <i className="flaticon-magnifier" />
                                             </div>
                                             <div className="user-dropdown-icon">
@@ -58,7 +58,7 @@ class Headers extends Component {
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                             <div className="mobile-menu d-flex ">
                                                 <div className="top-search-bar m-0 d-block d-xl-none">
                                                 </div>
@@ -77,18 +77,7 @@ class Headers extends Component {
                                             <img src={secondLogo} alt="" width="200" height="200" className="img-fluid" />
                                         </div>
                                         <ul>
-                                            {/* <li className="has-child-menu">
-                                            <Link to={"#"}>Pragina Inicial</Link>
-                                            <i className="fl flaticon-plus">+</i>
-                                            <ul className="sub-menu">
-                                                <li>
-                                                    <NavLink activeClassName="active" to={`${process.env.PUBLIC_URL}/`} className="sub-item" onClick={this.scrollTop}>Home Page 1</NavLink>
-                                                </li>
-                                                <li>
-                                                    <NavLink activeClassName="active" to={`${process.env.PUBLIC_URL}/home-page-2`} className="sub-item" onClick={this.scrollTop}>Home Page 2</NavLink>
-                                                </li>
-                                            </ul>
-                                        </li> */}
+                                            
                                             <li>
                                                 <NavLink activeClassName="active" to={`${process.env.PUBLIC_URL}/`} onClick={this.scrollTop} >Home</NavLink >
                                             </li>
@@ -139,7 +128,7 @@ class Headers extends Component {
                                             </li>
 
                                         </ul>
-                                        <div className="navbar-icons-2">
+                                        {/* <div className="navbar-icons-2">
                                             <div className="searchbar-open">
                                                 <i className="flaticon-magnifier" />
                                             </div>
@@ -166,7 +155,7 @@ class Headers extends Component {
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
                                         <div className="sidebar-contact">
                                             <ul>
                                                 <li className="sidebar-single-contact"><i className="bx bxs-phone" />
